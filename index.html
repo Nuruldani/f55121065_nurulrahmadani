@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurul Rahmadani H Suryanto</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <center><h2>UTS PEMOGRAMAN WEB1</h2></center>
+    <div id="error"></div>
+        <form id="form" action="/" method="get">
+        <div>
+            <label>Nama</label>
+            <input type="text" name="nama" id="nama" required placeholder="Nama.....">
+        </div>
+        <br>
+        <div>
+            <label>Username</label>
+            <input type="text" name="username" id="username" required placeholder="Username.....">
+        </div>
+        <br>
+        <div>
+            <label>Email</label>
+            <input type="email" name="email" id="email" required placeholder="Email.....">
+        </div>
+        <br>
+        <div>
+            <label>password:</label>
+            <input type="password" name="Password" placeholder="Password...." id="password"/>
+        </div>
+        <br>
+        <div class="btn-submit">
+            <input type="submit" name="submit" value="daftar">
+        </div>
+    </form>
+    </div>
+</body>
+<script type="text/javascript">
+    const name = document.getElementById('name')
+    const username = document.getElementById('username')
+    const email = document.getElementById('email')
+    const password = document.getElementById('password')
+    const form = document.getElementById('form')
+    const errorElement = document.getElementById('error')
+
+    form.addEventListener('submit', (e) =>{
+        let messaages = []
+        if (name.value === '' || name.value == null){
+            messaages.push("Nama tidak boleh kosong!")
+        }
+
+        if (username.value === '' || username.value == null){
+            messaages.push("Ussername tidak boleh kosong!")
+        }
+
+        if (email.value === '' || email.value == null){
+            messaages.push("Email tidak boleh kosong!")
+        }
+
+        if(password.value == '' || password.value == null){
+            messaages.push('Password Harus di ISI !')
+        }
+
+        if (messaages.length > 0){
+            e.preventDefault()
+            errorElement.innerText = messaages.join(', ')
+        }
+    })
+</script>
+</html>
